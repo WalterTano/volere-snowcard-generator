@@ -8,6 +8,22 @@ import { Component } from '@angular/core';
 export class AppComponent {
   testField = {
     type: 'string',
-    value: 'This is a field'
+    value: 'This is a field',
+    name: 'Field 1'
   }
+
+  testSection = {
+    fields: [
+      {
+        type: 'string',
+        value: 'This is a field',
+        name: 'Field 1'
+      },
+      {
+        type: 'string',
+        value: 'This is a field',
+        name: 'Field 2'
+      }
+    ]
+  };
 }

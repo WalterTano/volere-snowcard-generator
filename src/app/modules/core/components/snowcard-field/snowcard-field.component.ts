@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-import { SnowcardField } from 'src/app/modules/core/interfaces';
+import { ISnowcardField } from 'src/app/modules/core/interfaces';
 
 @Component({
   selector: 'app-snowcard-field',
@@ -9,7 +9,19 @@ import { SnowcardField } from 'src/app/modules/core/interfaces';
 })
 export class SnowcardFieldComponent implements OnInit {
 
-  @Input() field: SnowcardField = {};
+  @Input() field: ISnowcardField = {};
+
+  get isTextArea(): boolean {
+    return !this.isDropdown && this.field.type?.toLowerCase() === 'textarea';
+  }
+
+  get isInput(): boolean {
+    return !this.isDropdown && this.field.type?.toLowerCase() !== 'textarea';
+  }
+
+  get isDropdown(): boolean {
+    return this.field.options?.length! > 0;
+  }
 
   constructor() { }
 

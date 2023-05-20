@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { Snowcard } from 'src/app/modules/core/interfaces';
+import { ISnowcard } from 'src/app/modules/core/interfaces';
 import { DEFAULT_SNOWCARD } from 'src/app/modules/core/mocks';
 
 @Injectable({
@@ -10,7 +10,7 @@ export class SnowcardService {
 
   constructor() { }
 
-  createSnowcard(): Snowcard {
+  createSnowcard(): ISnowcard {
     return DEFAULT_SNOWCARD;
   }
 }

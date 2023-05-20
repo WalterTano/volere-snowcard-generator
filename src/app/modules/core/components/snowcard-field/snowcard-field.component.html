@@ -1,5 +1,31 @@
 <mat-form-field
   appearance="outline"
-  color="primary">
-  <input #fieldInput matInput>
+  color="primary"
+  class="w-100">
+  <mat-label>{{ field.name }}</mat-label>
+  <textarea
+    #fieldInput
+    *ngIf="isTextArea"
+    matInput
+    [value]="field.value"
+  ></textarea>
+
+  <input
+    #fieldInput
+    *ngIf="isInput"
+    matInput
+    [type]="field.type!"
+    [value]="field.value"
+  >
+
+  <mat-select
+    #fieldInput
+    *ngIf="isDropdown"
+    [value]="field.value">
+    <mat-option
+      *ngFor="let option of field.options"
+      [value]="option.value">
+        {{ option.label }}
+    </mat-option>
+  </mat-select>
 </mat-form-field>

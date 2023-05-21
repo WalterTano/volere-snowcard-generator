@@ -1,36 +1,28 @@
 <mat-form-field
+  *ngIf="!isCheckbox"
+  class="w-100"
   appearance="outline"
   color="primary"
-  class="w-100">
+>
   <mat-label>{{ field.name }}</mat-label>
   <textarea
-    #fieldInput
     matInput
     *ngIf="isTextArea"
-    [value]="field.value"
+    [(ngModel)]="field.value"
     [disabled]="!isEditable"
   ></textarea>
 
   <input
-    #fieldInput
     matInput
     *ngIf="isInput"
     [type]="field.type!"
-    [value]="field.value"
+    [(ngModel)]="field.value"
     [disabled]="!isEditable"
   >
 
-  <mat-checkbox
-    *ngIf="isCheckbox"
-    [checked]="field.value"
-  >
-    {{ field.name }}
-  </mat-checkbox>
-
   <mat-select
-    #fieldInput
     *ngIf="isDropdown"
-    [value]="field.value"
+    [(ngModel)]="field.value"
     [disabled]="!isEditable"
   >
     <mat-option
@@ -40,3 +32,13 @@
     </mat-option>
   </mat-select>
 </mat-form-field>
+
+
+<mat-checkbox
+  *ngIf="isCheckbox"
+  class="w-100 mt-3"
+  color="primary"
+  [(ngModel)]="field.value"
+  >
+  {{ field.name }}
+</mat-checkbox>

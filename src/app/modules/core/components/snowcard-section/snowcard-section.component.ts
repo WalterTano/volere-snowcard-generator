@@ -20,6 +20,10 @@ export class SnowcardSectionComponent implements OnInit {
     return this.section.fields?.find(f => f.type === 'textArea') !== undefined;
   }
 
+  get colSelector(): string {
+    return (this.section.fields?.length || 1) === 3 ? 'col-4' : 'col';
+  }
+
   constructor(
     private dialog: MatDialog,
     private snowcardService: SnowcardService
@@ -38,9 +42,9 @@ export class SnowcardSectionComponent implements OnInit {
 
         if (result.addToTemplate) {
           this.snowcardService.addFieldToTemplate(result.field, this.sectionNumber!);
-        } else {
-          this.section.fields?.push(result.field);
         }
+
+        this.section.fields?.push(result.field);
     });
   }
 

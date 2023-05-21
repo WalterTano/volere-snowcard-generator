@@ -9,6 +9,8 @@ import { ISnowcardField } from 'src/app/modules/core/interfaces';
 })
 export class SnowcardFieldComponent implements OnInit {
 
+  checked: boolean = false;
+
   @Input() field: ISnowcardField = {};
   @Input() isEditable: boolean = false;
 

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 import { MaterialModule } from './../../material.module';
 import { SnowcardFieldComponent } from './components/snowcard-field/snowcard-field.component';
@@ -22,7 +23,8 @@ import { ChipListComponent } from './components/chip-list/chip-list.component';
   imports: [
     CommonModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   exports: [
     SnowcardFieldComponent,

@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <app-snowcard-field
-      class="col"
+      class="{{colSelector}}"
       *ngFor="let field of section.fields"
       [field]="field"
       [isEditable]="isEditMode"

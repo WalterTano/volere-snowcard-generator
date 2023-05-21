@@ -17,11 +17,12 @@ export class SnowcardService {
   createSnowcard(): Observable<void> {
     const snowcard = { ...this.baseSnowcard };
     snowcard.sections = snowcard.sections?.map(section => {
-      section.fields = section.fields?.map(fields => {
-        return { ...fields };
-      });
-
-      return { ...section };
+      return {
+        ...section,
+        fields: section.fields?.map(fields => {
+          return { ...fields };
+        })
+      };
     });
 
     this.snowcards.push(snowcard);

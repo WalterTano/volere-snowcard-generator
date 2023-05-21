@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CryptoService } from './modules/core/services/crypto.service';
 
 @Component({
   selector: 'app-root',
@@ -6,8 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  testField = {
-    type: 'string',
-    value: 'This is a field'
-  }
+
+  constructor(private cryptoService: CryptoService) { }
 }

@@ -1,0 +1,74 @@
+<form
+  [formGroup]="fieldForm"
+  (submit)="handleSave()"
+>
+  <h2 mat-dialog-title>New Field</h2>
+
+  <mat-dialog-content
+    class="row overflow-hidden"
+  >
+    <mat-form-field
+      class="col"
+    >
+      <mat-label>Name</mat-label>
+      <input
+        matInput
+        formControlName="name"
+      >
+    </mat-form-field>
+
+    <mat-form-field
+      class="col"
+    >
+      <mat-label>Type</mat-label>
+      <mat-select
+        formControlName="type"
+      >
+        <mat-option
+          *ngFor="let option of typeOptions"
+          [value]="option.value">
+            {{ option.label }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div
+      class="col"
+      *ngIf="fieldForm.value.type === 'text'"
+    >
+      <app-chip-list
+        formControlName="options"
+        placeholder="Enter options..."
+      ></app-chip-list>
+    </div>
+
+    <mat-checkbox
+      class="col"
+      formControlName="addToTemplate"
+    >
+      Include in all new Snowcards
+    </mat-checkbox>
+
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end">
+    <button
+      mat-stroked-button
+      type="button"
+      (click)="handleClose()"
+    >
+      Cancel
+    </button>
+
+    <button
+      mat-flat-button
+      cdkFocusInitial
+      type="submit"
+      color="primary"
+      [disabled]="fieldForm.invalid"
+      (click)="handleSave()"
+    >
+      Save
+    </button>
+  </mat-dialog-actions>
+</form>

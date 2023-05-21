@@ -1,0 +1,45 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{ snowcardTitle }}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <app-snowcard-section
+      *ngFor="let section of snowcard.sections; let i = index"
+      [section]="section"
+      [sectionNumber]="i"
+      [isEditMode]="isEditMode"
+    >
+    </app-snowcard-section>
+    <div
+      class="w-100 px-1 mb-4"
+      *ngIf="isEditMode"
+    >
+      <button
+        mat-flat-button
+        class="w-100 add-section-btn"
+        color="primary"
+        (click)="handleSectionAdd()"
+      >
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+    <mat-divider></mat-divider>
+  </mat-card-content>
+  <mat-card-actions align="end">
+    <button mat-button
+      *ngIf="!isEditMode"
+      (click)="isEditMode = true"
+      >EDIT
+    </button>
+    <button mat-button
+      *ngIf="isEditMode"
+      (click)="isEditMode = false"
+      >SAVE
+    </button>
+    <button mat-button
+      *ngIf="!isEditMode"
+      (click)="handleDelete()"
+      >DELETE
+    </button>
+  </mat-card-actions>
+</mat-card>

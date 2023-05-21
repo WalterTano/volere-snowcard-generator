@@ -1,22 +1,17 @@
-import { Snowcard } from 'src/app/modules/core/interfaces';
+import { ISnowcard } from 'src/app/modules/core/interfaces';
 
-export const DEFAULT_SNOWCARD: Snowcard = {
+export const DEFAULT_SNOWCARD: ISnowcard = {
   sections: [
     {
       fields: [
         {
-          name: 'Requirement #',
-          type: 'string',
-          value: ''
-        },
-        {
           name: 'Requirement Type',
-          type: 'string',
+          type: 'text',
           value: ''
         },
         {
           name: 'Event/BUC/PUC',
-          type: 'string',
+          type: 'text',
           value: ''
         }
       ]
@@ -25,7 +20,7 @@ export const DEFAULT_SNOWCARD: Snowcard = {
       fields: [
         {
           name: 'Description',
-          type: 'string',
+          type: 'textArea',
           value: ''
         }
       ]
@@ -34,7 +29,7 @@ export const DEFAULT_SNOWCARD: Snowcard = {
       fields: [
         {
           name: 'Rationale',
-          type: 'string',
+          type: 'textArea',
           value: ''
         }
       ]
@@ -43,7 +38,7 @@ export const DEFAULT_SNOWCARD: Snowcard = {
       fields: [
         {
           name: 'Originator',
-          type: 'string',
+          type: 'text',
           value: ''
         }
       ]
@@ -52,7 +47,7 @@ export const DEFAULT_SNOWCARD: Snowcard = {
       fields: [
         {
           name: 'Fit Criterion',
-          type: 'string',
+          type: 'textArea',
           value: ''
         }
       ]
@@ -75,12 +70,12 @@ export const DEFAULT_SNOWCARD: Snowcard = {
       fields: [
         {
           name: 'Dependencies',
-          type: 'string',
+          type: 'text',
           value: ''
         },
         {
           name: 'Conflicts',
-          type: 'string',
+          type: 'text',
           value: ''
         }
       ]
@@ -89,7 +84,7 @@ export const DEFAULT_SNOWCARD: Snowcard = {
       fields: [
         {
           name: 'Supporting Materials',
-          type: 'string',
+          type: 'textArea',
           value: ''
         }
       ]
@@ -98,7 +93,7 @@ export const DEFAULT_SNOWCARD: Snowcard = {
       fields: [
         {
           name: 'History',
-          type: 'string',
+          type: 'text',
           value: ''
         }
       ]

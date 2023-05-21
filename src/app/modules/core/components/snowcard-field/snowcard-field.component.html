@@ -1,5 +1,42 @@
 <mat-form-field
   appearance="outline"
-  color="primary">
-  <input #fieldInput matInput>
+  color="primary"
+  class="w-100">
+  <mat-label>{{ field.name }}</mat-label>
+  <textarea
+    #fieldInput
+    matInput
+    *ngIf="isTextArea"
+    [value]="field.value"
+    [disabled]="!isEditable"
+  ></textarea>
+
+  <input
+    #fieldInput
+    matInput
+    *ngIf="isInput"
+    [type]="field.type!"
+    [value]="field.value"
+    [disabled]="!isEditable"
+  >
+
+  <mat-checkbox
+    *ngIf="isCheckbox"
+    [checked]="field.value"
+  >
+    {{ field.name }}
+  </mat-checkbox>
+
+  <mat-select
+    #fieldInput
+    *ngIf="isDropdown"
+    [value]="field.value"
+    [disabled]="!isEditable"
+  >
+    <mat-option
+      *ngFor="let option of field.options"
+      [value]="option.value">
+        {{ option.label }}
+    </mat-option>
+  </mat-select>
 </mat-form-field>

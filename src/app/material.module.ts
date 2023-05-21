@@ -7,6 +7,10 @@ import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatChipsModule } from '@angular/material/chips';
+
 
 const MATERIAL_COMPONENTS = [
   MatSlideToggleModule,
@@ -16,7 +20,10 @@ const MATERIAL_COMPONENTS = [
   MatCardModule,
   MatDividerModule,
   MatButtonModule,
-  MatIconModule
+  MatIconModule,
+  MatDialogModule,
+  MatCheckboxModule,
+  MatChipsModule
 ];
 
 @NgModule({

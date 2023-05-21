@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DEFAULT_SNOWCARD } from './modules/core/mocks';
+import { CryptoService } from './modules/core/services/crypto.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +7,6 @@ import { DEFAULT_SNOWCARD } from './modules/core/mocks';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+
+  constructor(private cryptoService: CryptoService) { }
 }

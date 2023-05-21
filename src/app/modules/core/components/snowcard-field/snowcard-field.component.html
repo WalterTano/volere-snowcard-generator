@@ -20,6 +20,13 @@
     [disabled]="!isEditable"
   >
 
+  <mat-checkbox
+    *ngIf="isCheckbox"
+    [checked]="field.value"
+  >
+    {{ field.name }}
+  </mat-checkbox>
+
   <mat-select
     #fieldInput
     *ngIf="isDropdown"

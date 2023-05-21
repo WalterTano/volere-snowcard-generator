@@ -11,7 +11,7 @@
     <button
       mat-stroked-button
       class="add-section-btn"
-      *ngIf="section.fields!.length < 3 && isEditMode"
+      *ngIf="section.fields!.length < 3 && isEditMode && !hasTextAreaField"
       (click)="handleFieldAdd()"
     >
       <mat-icon>add</mat-icon>

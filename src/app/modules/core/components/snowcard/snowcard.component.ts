@@ -8,10 +8,10 @@ import { ISnowcard } from '../../interfaces';
 })
 export class SnowcardComponent implements OnInit {
 
+  isEditMode: boolean = true;
+
   @Input() snowcard: ISnowcard = { sections: [] };
   @Output() delete = new EventEmitter<number>();
-
-  isEditMode: boolean = true;
 
   get snowcardTitle() {
     return `Requirement #${this.snowcard.requirementNumber}`;

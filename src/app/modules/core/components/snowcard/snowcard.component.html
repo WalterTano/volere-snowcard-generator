@@ -4,8 +4,9 @@
   </mat-card-header>
   <mat-card-content>
     <app-snowcard-section
-      *ngFor="let section of snowcard.sections"
+      *ngFor="let section of snowcard.sections; let i = index"
       [section]="section"
+      [sectionNumber]="i"
       [isEditMode]="isEditMode"
     >
     </app-snowcard-section>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ISnowcard } from '../../interfaces';
-import { DEFAULT_SNOWCARD } from '../../mocks';
+import { SnowcardService } from '../../services/snowcard.service';
 
 @Component({
   selector: 'app-snowcard-grid',
@@ -9,20 +9,24 @@ import { DEFAULT_SNOWCARD } from '../../mocks';
 })
 export class SnowcardGridComponent implements OnInit {
 
-  snowcards: ISnowcard[] = [];
+  _snowcards: ISnowcard[] = this.snowcardService.snowcards;
 
-  constructor() { }
+  get snowcards(): ISnowcard[] {
+    return this._snowcards.map((snowcard, i) => {
+      snowcard.requirementNumber = i + 1;
+      return snowcard;
+    });
+  }
+
+  constructor(private snowcardService: SnowcardService) { }
 
   ngOnInit(): void {}
 
   handleSnowcardDelete($event: number) {
-    this.snowcards.splice($event - 1, 1);
+    this._snowcards.splice($event - 1, 1);
   }
 
   handleSnowcardAdd() {
-    this.snowcards.push({
-      ...DEFAULT_SNOWCARD,
-      requirementNumber: this.snowcards.length + 1
-    });
+    this.snowcardService.createSnowcard();
   }
 }

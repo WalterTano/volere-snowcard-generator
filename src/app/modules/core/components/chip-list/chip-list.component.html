@@ -1,0 +1,29 @@
+<form>
+  <mat-form-field class="w-100 chip-list">
+    <mat-label>Options</mat-label>
+
+    <mat-chip-list
+      class="overflow-auto"
+      #chipList
+    >
+      <mat-chip
+        *ngFor="let chipContent of value"
+        color="primary"
+        selected
+        (removed)="remove(chipContent)"
+      >
+        {{chipContent}}
+        <button matChipRemove>
+          <mat-icon>cancel</mat-icon>
+        </button>
+      </mat-chip>
+    </mat-chip-list>
+
+    <input
+      #input
+      [placeholder]="placeholder"
+      [matChipInputFor]="chipList"
+      [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+      (matChipInputTokenEnd)="add($event)"/>
+  </mat-form-field>
+</form>

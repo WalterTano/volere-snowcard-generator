@@ -17,7 +17,11 @@ export class SnowcardFieldComponent implements OnInit {
   }
 
   get isInput(): boolean {
-    return !this.isDropdown && this.field.type?.toLowerCase() !== 'textarea';
+    return !this.isDropdown && [ 'text', 'number' ].includes(this.field.type!.toLowerCase());
+  }
+
+  get isCheckbox(): boolean {
+    return this.field.type?.toLowerCase() === 'checkbox';
   }
 
   get isDropdown(): boolean {

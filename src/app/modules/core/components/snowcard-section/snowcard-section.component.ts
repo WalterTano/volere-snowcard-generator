@@ -9,9 +9,16 @@ import { ISnowcardSection } from '../../interfaces';
 export class SnowcardSectionComponent implements OnInit {
 
   @Input() section: ISnowcardSection = { fields: [] };
+  @Input() isEditMode: boolean = false;
 
   constructor() { }
 
   ngOnInit(): void { }
+
+  handleFieldAdd() {
+    // open modal
+    // then add resulting field
+    // include checkbox to add to all existing requirements
+  }
 
 }

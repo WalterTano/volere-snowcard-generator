@@ -5,23 +5,27 @@
   <mat-label>{{ field.name }}</mat-label>
   <textarea
     #fieldInput
-    *ngIf="isTextArea"
     matInput
+    *ngIf="isTextArea"
     [value]="field.value"
+    [disabled]="!isEditable"
   ></textarea>
 
   <input
     #fieldInput
-    *ngIf="isInput"
     matInput
+    *ngIf="isInput"
     [type]="field.type!"
     [value]="field.value"
+    [disabled]="!isEditable"
   >
 
   <mat-select
     #fieldInput
     *ngIf="isDropdown"
-    [value]="field.value">
+    [value]="field.value"
+    [disabled]="!isEditable"
+  >
     <mat-option
       *ngFor="let option of field.options"
       [value]="option.value">

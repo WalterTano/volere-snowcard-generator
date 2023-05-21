@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ISnowcard } from '../../interfaces';
 
 @Component({
@@ -8,10 +8,25 @@ import { ISnowcard } from '../../interfaces';
 })
 export class SnowcardComponent implements OnInit {
 
-  @Input() field: ISnowcard = { sections: [] };
+  @Input() snowcard: ISnowcard = { sections: [] };
+  @Output() delete = new EventEmitter<number>();
+
+  isEditMode: boolean = true;
+
+  get snowcardTitle() {
+    return `Requirement #${this.snowcard.requirementNumber}`;
+  }
 
   constructor() { }
 
   ngOnInit(): void { }
+
+  handleDelete() {
+    this.delete.emit(this.snowcard.requirementNumber);
+  }
+
+  handleSectionAdd() {
+    this.snowcard.sections?.push({ fields: [] });
+  }
 
 }

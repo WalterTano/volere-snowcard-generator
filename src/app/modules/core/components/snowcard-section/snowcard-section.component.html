@@ -4,7 +4,17 @@
       class="col"
       *ngFor="let field of section.fields"
       [field]="field"
+      [isEditable]="isEditMode"
     >
     </app-snowcard-field>
+
+    <button
+      mat-stroked-button
+      class="add-section-btn"
+      *ngIf="section.fields!.length < 3 && isEditMode"
+      (click)="handleFieldAdd()"
+    >
+      <mat-icon>add</mat-icon>
+    </button>
   </div>
 </div>

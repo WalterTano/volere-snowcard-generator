@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DEFAULT_SNOWCARD } from './modules/core/mocks';
 
 @Component({
   selector: 'app-root',
@@ -6,24 +7,4 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  testField = {
-    type: 'string',
-    value: 'This is a field',
-    name: 'Field 1'
-  }
-
-  testSection = {
-    fields: [
-      {
-        type: 'string',
-        value: 'This is a field',
-        name: 'Field 1'
-      },
-      {
-        type: 'string',
-        value: 'This is a field',
-        name: 'Field 2'
-      }
-    ]
-  };
 }

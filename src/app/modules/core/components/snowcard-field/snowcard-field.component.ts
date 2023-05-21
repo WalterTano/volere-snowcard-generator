@@ -10,6 +10,7 @@ import { ISnowcardField } from 'src/app/modules/core/interfaces';
 export class SnowcardFieldComponent implements OnInit {
 
   @Input() field: ISnowcardField = {};
+  @Input() isEditable: boolean = false;
 
   get isTextArea(): boolean {
     return !this.isDropdown && this.field.type?.toLowerCase() === 'textarea';

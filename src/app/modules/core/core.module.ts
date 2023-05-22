@@ -10,6 +10,7 @@ import { SnowcardComponent } from './components/snowcard/snowcard.component';
 import { SnowcardGridComponent } from './components/snowcard-grid/snowcard-grid.component';
 import { SnowcardFieldCreationModalComponent } from './components/snowcard-field-creation-modal/snowcard-field-creation-modal.component';
 import { ChipListComponent } from './components/chip-list/chip-list.component';
+import { GlobalButtonsComponent } from './components/global-buttons/global-buttons.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ChipListComponent } from './components/chip-list/chip-list.component';
     SnowcardComponent,
     SnowcardGridComponent,
     SnowcardFieldCreationModalComponent,
-    ChipListComponent
+    ChipListComponent,
+    GlobalButtonsComponent
   ],
   imports: [
     CommonModule,

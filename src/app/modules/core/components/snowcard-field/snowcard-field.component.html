@@ -1,12 +1,13 @@
 <mat-form-field
   *ngIf="!isCheckbox"
-  class="w-100"
+  class="w-100 position-relative"
   appearance="outline"
   color="primary"
 >
   <mat-label>{{ field.name }}</mat-label>
   <textarea
     matInput
+    class="text-area-input"
     *ngIf="isTextArea"
     [(ngModel)]="field.value"
     [disabled]="!isEditable"
@@ -31,14 +32,35 @@
         {{ option.label }}
     </mat-option>
   </mat-select>
+
+  <button
+    mat-raised-button
+    class="delete-field-btn fixed-side-btn"
+    (click)="handleFieldDelete()"
+    color="primary"
+    >
+    <mat-icon>delete</mat-icon>
+  </button>
 </mat-form-field>
 
-
-<mat-checkbox
+<div
+  class="row me-1"
   *ngIf="isCheckbox"
-  class="w-100 mt-3"
-  color="primary"
-  [(ngModel)]="field.value"
-  >
-  {{ field.name }}
-</mat-checkbox>
+>
+  <mat-checkbox
+    class="col mt-3 w-100"
+    color="primary"
+    [(ngModel)]="field.value"
+    >
+    {{ field.name }}
+  </mat-checkbox>
+
+  <button
+    mat-raised-button
+    class="delete-field-btn checkbox-delete-btn"
+    (click)="handleFieldDelete()"
+    color="primary"
+    >
+    <mat-icon>delete</mat-icon>
+  </button>
+</div>

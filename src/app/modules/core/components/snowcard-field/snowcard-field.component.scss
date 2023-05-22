@@ -1,0 +1,25 @@
+
+.delete-field-btn {
+  min-width: 0;
+  width: .5rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkbox-delete-btn {
+  margin-top: .75rem;
+}
+
+.fixed-side-btn {
+  z-index: 1;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.text-area-input {
+  min-height: 3rem;
+  resize: vertical;
+}

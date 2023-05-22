@@ -8,6 +8,7 @@
       [section]="section"
       [sectionNumber]="i"
       [isEditMode]="isEditMode"
+      (delete)="handleSectionDelete($event)"
     >
     </app-snowcard-section>
     <div
@@ -15,7 +16,7 @@
       *ngIf="isEditMode"
     >
       <button
-        mat-flat-button
+        mat-raised-button
         class="w-100 add-section-btn"
         color="primary"
         (click)="handleSectionAdd()"
@@ -26,20 +27,21 @@
     <mat-divider></mat-divider>
   </mat-card-content>
   <mat-card-actions align="end">
-    <button mat-button
+    <button mat-stroked-button
+      (click)="handleDelete()"
+      color="warn"
+      >DELETE
+    </button>
+    <button mat-stroked-button
       *ngIf="!isEditMode"
       (click)="isEditMode = true"
       >EDIT
     </button>
-    <button mat-button
+    <button mat-flat-button
       *ngIf="isEditMode"
       (click)="isEditMode = false"
+      color="primary"
       >SAVE
-    </button>
-    <button mat-button
-      *ngIf="!isEditMode"
-      (click)="handleDelete()"
-      >DELETE
     </button>
   </mat-card-actions>
 </mat-card>

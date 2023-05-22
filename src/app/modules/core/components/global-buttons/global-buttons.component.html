@@ -1,0 +1,55 @@
+<button
+  mat-fab
+  *ngIf="buttonSelector === 'show'"
+  class="position-fixed add-fab top-btn {{buttonSelector}}"
+  color="primary"
+  (click)="handleSnowcardAdd()"
+>
+  <mat-icon>add</mat-icon>
+</button>
+
+<button
+  mat-fab
+  *ngIf="buttonSelector === 'show'"
+  class="position-fixed add-fab middle-btn {{buttonSelector}}"
+  color="primary"
+  (click)="handleSnowcardDownload()"
+>
+  <mat-icon>download</mat-icon>
+</button>
+
+<button
+  mat-fab
+  *ngIf="buttonSelector === 'show'"
+  class="position-fixed add-fab bottom-btn {{buttonSelector}}"
+  color="primary"
+  (click)="fileInput.value = ''; fileInput.click()"
+>
+  <mat-icon>upload</mat-icon>
+</button>
+
+<input
+  #fileInput
+  class="d-none"
+  type="file"
+  accept="application/json"
+  (change)="handleSnowcardImport($event)"
+>
+
+<button
+  mat-fab
+  class="position-fixed add-fab bottom-btn"
+  color="primary"
+  (click)="buttonSelector = buttonSelector === 'show' ? 'hide' : 'show'"
+>
+  <mat-icon
+    *ngIf="buttonSelector !== 'show'"
+  >
+    expand_less
+  </mat-icon>
+  <mat-icon
+    *ngIf="buttonSelector === 'show'"
+  >
+    expand_more
+  </mat-icon>
+</button>

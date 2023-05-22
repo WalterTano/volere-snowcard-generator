@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 import { ISnowcardField } from 'src/app/modules/core/interfaces';
 
@@ -13,6 +13,8 @@ export class SnowcardFieldComponent implements OnInit {
 
   @Input() field: ISnowcardField = {};
   @Input() isEditable: boolean = false;
+
+  @Output() delete = new EventEmitter<ISnowcardField>();
 
   get isTextArea(): boolean {
     return !this.isDropdown && this.field.type?.toLowerCase() === 'textarea';
@@ -34,4 +36,7 @@ export class SnowcardFieldComponent implements OnInit {
 
   ngOnInit(): void { }
 
+  handleFieldDelete() {
+    this.delete.emit(this.field);
+  }
 }

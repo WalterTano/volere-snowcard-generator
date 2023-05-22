@@ -1,0 +1,52 @@
+
+.add-fab {
+  bottom: 4rem;
+  right: 2rem;
+  z-index: 2;
+}
+
+
+.top-btn.show {
+  transform: translateY(-375%);
+  animation-name: top-slide-up;
+  animation-duration: 0.2s;
+}
+
+.middle-btn.show {
+  transform: translateY(-250%);
+  animation-name: middle-slide-up;
+  animation-duration: 0.2s;
+}
+
+.bottom-btn.show {
+  transform: translateY(-125%);
+  animation-name: bottom-slide-up;
+  animation-duration: 0.2s;
+}
+
+@keyframes top-slide-up {
+  0% {
+    transform: translateY(0%)
+  }
+  100% {
+    transform: translateY(-375%)
+  }
+}
+
+@keyframes middle-slide-up {
+  0% {
+    transform: translateY(0%)
+  }
+  100% {
+    transform: translateY(-250%)
+  }
+}
+
+@keyframes bottom-slide-up {
+  0% {
+    transform: translateY(0%)
+  }
+  100% {
+    transform: translateY(-125%)
+  }
+}

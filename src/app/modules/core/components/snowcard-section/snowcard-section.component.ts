@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
 import { ISnowcardField, ISnowcardSection } from '../../interfaces';
@@ -16,8 +16,14 @@ export class SnowcardSectionComponent implements OnInit {
   @Input() sectionNumber?: number;
   @Input() isEditMode: boolean = false;
 
+  @Output() delete = new EventEmitter<ISnowcardSection>();
+
   get hasTextAreaField(): boolean {
-    return this.section.fields?.find(f => f.type === 'textArea') !== undefined;
+    return this.section.fields?.find(f => f.type?.toLowerCase() === 'textarea') !== undefined;
+  }
+
+  get fieldSize(): number {
+    return 12 / this.section.fields?.length!;
   }
 
   constructor(
@@ -29,7 +35,9 @@ export class SnowcardSectionComponent implements OnInit {
 
   handleFieldAdd() {
     const dialogRef = this.dialog.open(SnowcardFieldCreationModalComponent, {
-      width: '75%',
+      data: {
+        enableTextArea: false
+      }
     });
 
     dialogRef.afterClosed().subscribe(
@@ -38,10 +46,18 @@ export class SnowcardSectionComponent implements OnInit {
 
         if (result.addToTemplate) {
           this.snowcardService.addFieldToTemplate(result.field, this.sectionNumber!);
-        } else {
-          this.section.fields?.push(result.field);
         }
+
+        this.section.fields?.push(result.field);
     });
+  }
+
+  handleFieldDelete($event: ISnowcardField) {
+    this.section.fields = this.section.fields?.filter(field => $event !== field);
+
+    if (this.section.fields?.length === 0) {
+      this.delete.emit(this.section);
+    }
   }
 
 }

@@ -1,16 +1,20 @@
 <div class="container">
   <div class="row">
-    <app-snowcard-field
-      class="col"
-      *ngFor="let field of section.fields"
-      [field]="field"
-      [isEditable]="isEditMode"
-    >
-    </app-snowcard-field>
+    <div class="col row">
+      <app-snowcard-field
+        class="col-{{fieldSize}}"
+        *ngFor="let field of section.fields"
+        [field]="field"
+        [isEditable]="isEditMode"
+        (delete)="handleFieldDelete($event)"
+      >
+      </app-snowcard-field>
+    </div>
+
 
     <button
       mat-stroked-button
-      class="add-section-btn"
+      class="add-field-btn"
       *ngIf="section.fields!.length < 3 && isEditMode && !hasTextAreaField"
       (click)="handleFieldAdd()"
     >

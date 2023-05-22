@@ -20,6 +20,7 @@ export class ChipListComponent implements ControlValueAccessor {
   value: string[] = [];
 
   @ViewChild('input') input?: ElementRef<HTMLInputElement>;
+
   @Input() placeholder: string = '';
 
   private onChange: ((value: any) => void) | undefined;

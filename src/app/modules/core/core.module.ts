@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 import { MaterialModule } from './../../material.module';
 import { SnowcardFieldComponent } from './components/snowcard-field/snowcard-field.component';
@@ -9,6 +10,7 @@ import { SnowcardComponent } from './components/snowcard/snowcard.component';
 import { SnowcardGridComponent } from './components/snowcard-grid/snowcard-grid.component';
 import { SnowcardFieldCreationModalComponent } from './components/snowcard-field-creation-modal/snowcard-field-creation-modal.component';
 import { ChipListComponent } from './components/chip-list/chip-list.component';
+import { GlobalButtonsComponent } from './components/global-buttons/global-buttons.component';
 
 @NgModule({
   declarations: [
@@ -17,12 +19,14 @@ import { ChipListComponent } from './components/chip-list/chip-list.component';
     SnowcardComponent,
     SnowcardGridComponent,
     SnowcardFieldCreationModalComponent,
-    ChipListComponent
+    ChipListComponent,
+    GlobalButtonsComponent
   ],
   imports: [
     CommonModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   exports: [
     SnowcardFieldComponent,

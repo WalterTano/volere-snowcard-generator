@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 
 import { IDropdownOption, ISnowcardField } from '../../interfaces';
@@ -25,6 +25,7 @@ export class SnowcardFieldCreationModalComponent implements OnInit {
   }
 
   constructor(
+    @Inject(MAT_DIALOG_DATA) private data: { enableTextArea: boolean },
     private fb: FormBuilder,
     private dialogRef: MatDialogRef<SnowcardFieldCreationModalComponent>,
     private snowcardService: SnowcardService
@@ -34,6 +35,10 @@ export class SnowcardFieldCreationModalComponent implements OnInit {
     this.snowcardService.getSnowcardTypes()
     .subscribe( result => {
       this.typeOptions = result;
+
+      if (!this.data.enableTextArea) {
+        this.typeOptions = this.typeOptions.filter(opt => opt.value.toLowerCase() !== 'textarea');
+      }
     });
   }
 

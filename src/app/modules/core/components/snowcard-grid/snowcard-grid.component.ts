@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ISnowcard } from '../../interfaces';
 import { SnowcardService } from '../../services/snowcard.service';
+import { DownloadService } from '../../services/download.service';
 
 @Component({
   selector: 'app-snowcard-grid',
@@ -18,7 +19,10 @@ export class SnowcardGridComponent implements OnInit {
     });
   }
 
-  constructor(private snowcardService: SnowcardService) { }
+  constructor(
+    private snowcardService: SnowcardService,
+    private downloadService: DownloadService
+  ) { }
 
   ngOnInit(): void {}
 
@@ -28,5 +32,15 @@ export class SnowcardGridComponent implements OnInit {
 
   handleSnowcardAdd() {
     this.snowcardService.createSnowcard();
+  }
+
+  handleSnowcardDownload() {
+    const currDate = new Date();
+    const fileName = `Volere Snowcards ${currDate.toLocaleDateString()}T${currDate.toLocaleTimeString()}.json`;
+    this.downloadService.downloadFile(JSON.stringify(this._snowcards), 'application/json', fileName);
+  }
+
+  handleSnowcardImport($event: ISnowcard[]) {
+    this._snowcards = $event;
   }
 }

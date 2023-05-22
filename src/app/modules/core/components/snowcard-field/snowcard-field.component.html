@@ -35,7 +35,7 @@
 
   <button
     mat-raised-button
-    *ngIf="!isEditable"
+    *ngIf="isEditable"
     class="delete-field-btn fixed-side-btn"
     (click)="handleFieldDelete()"
     color="primary"
@@ -58,7 +58,7 @@
 
   <button
     mat-raised-button
-    *ngIf="!isEditable"
+    *ngIf="isEditable"
     class="delete-field-btn checkbox-delete-btn"
     (click)="handleFieldDelete()"
     color="primary"

@@ -17,6 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "baseHref": "/volere-snowcard-generator/",
             "outputPath": "dist/volere-snowcard-generator",
             "index": "src/index.html",
             "main": "src/main.ts",
